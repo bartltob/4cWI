@@ -1,9 +1,9 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-.container{
+.container {
     margin: 25px;
     display: flex;
     background-color: lightblue;
@@ -13,15 +13,18 @@
     padding-left: 30px;
     padding-right: 30px;
 }
-.bluediv{
+
+.bluediv {
     background-color: blue;
     height: 75px;
     width: 75px;
 }
-.greencontainer{
+
+.greencontainer {
     display: flex;
 }
-.greendiv{
+
+.greendiv {
     display: flex;
     background-color: green;
     height: 75px;
@@ -30,19 +33,21 @@
     justify-content: start;
     align-items: end;
 }
-.reddiv{
+
+.reddiv {
     background-color: red;
     height: 25%;
     width: 25%;
 }
 
-.bottom{
+.bottom {
     display: flex;
     height: 80vh;
     justify-content: center;
     align-items: end;
 }
-.violetdiv{
+
+.violetdiv {
     background-color: violet;
     height: 100px;
     width: 100px;
