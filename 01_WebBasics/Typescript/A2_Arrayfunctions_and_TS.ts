@@ -65,7 +65,7 @@ console.log(HaggisPets);
 
 //? FIND gibt das erste Element zurück, auf welches die Bedingung zustimmt
 
-console.log(pets.find((pet: Pets) => pet.age < 3));
+//console.log(pets.find((pet: Pets) => pet.age < 3));
 
 //? REDUCE: Es wird nur ein Wert zurückgegeben
 //? Aufbau:
