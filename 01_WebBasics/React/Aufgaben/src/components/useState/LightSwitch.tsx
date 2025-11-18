@@ -9,7 +9,7 @@ function LightSwitch() {
   }, [bgcolor]);
   return (
     <div
-      className="bg-white w-150 h-100 p-3 rounded-4xl border-8 flex justify-center"
+      className="bg-white w-150 h-100 p-3 rounded-4xl border-8 flex justify-center hover:cursor-pointer"
       onClick={() => setState(!State)}
     >
       <img src={`${img}`} alt="lightbulb" className="w-100 h-full" />
