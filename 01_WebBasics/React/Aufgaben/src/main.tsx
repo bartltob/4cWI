@@ -1,13 +1,41 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-//import API_Data from "./API_Data.tsx";
-//import LightSwitch from "./LightSwitch.tsx";
-import List from "./components/ToDoList/list.tsx";
-//import UseState from "./useState.tsx";
+// @ts-expect-error error
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import "./index.css";
+import UseState from "./useState";
+import LightSwitch from "./LightSwitch.tsx";
+import ToDoList from "./ToDoList.tsx";
+import Homepage from "./homepage.tsx";
+import API_Data from "./API_Data.tsx";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <List/>
-  </StrictMode>,
-)
+const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Homepage/>
+    },
+    {
+        path: "/HaggiClicker",
+        element: <UseState/>,
+    },
+    {
+        path: "/LightSwitch",
+        element: <LightSwitch/>,
+    },
+    {
+        path: "/ToDo",
+        element: <ToDoList/>,
+    },
+    {
+      path: "/Persons",
+      element: <API_Data/>
+    },
+]);
+
+const root = document.getElementById("root");
+
+// @ts-expect-error error
+ReactDOM.createRoot(root).render(
+    <RouterProvider router={router} />,
+);

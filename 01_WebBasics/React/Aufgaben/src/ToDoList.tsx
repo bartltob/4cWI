@@ -1,7 +1,7 @@
-import People from "./components/API_Data/People.tsx";
+import List from "./components/ToDoList/list.tsx";
 
-export default function API_Data(){
+export default function ToDoList() {
     return(
-        <People/>
+        <List/>
     )
 }
