@@ -5,6 +5,7 @@ const links = [
   { to: "/LightSwitch", label: "Lichtschalter (useState)" },
   { to: "/ToDo", label: "ToDo-Liste (useEffekt)" },
   { to: "/Persons", label: "Personen - API (useEffekt)" },
+  { to: "/ToDoFilter", label: "ToDoList Filter" },
 ];
 
 export default function Uebersicht() {

@@ -9,6 +9,7 @@ import LightSwitch from "./LightSwitch.tsx";
 import ToDoList from "./ToDoList.tsx";
 import Homepage from "./homepage.tsx";
 import API_Data from "./API_Data.tsx";
+import ToDoFilter from "./ToDoFilter_App.tsx";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     {
       path: "/Persons",
       element: <API_Data/>
+    },
+    {
+        path: "/ToDoFilter",
+        element: <ToDoFilter/>
     },
 ]);
 
