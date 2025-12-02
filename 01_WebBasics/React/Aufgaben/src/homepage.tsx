@@ -8,6 +8,9 @@ const links = [
   { to: "/ToDoFilter", label: "ToDoList Filter" },
 ];
 
+
+const visitor = {firstname:"Luca Andreas", lastname:"Hagspiel", pet:"Cat"};
+
 export default function Uebersicht() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#0d1117] p-10">
@@ -20,6 +23,7 @@ export default function Uebersicht() {
           <Link
             key={link.to}
             to={link.to}
+            state={visitor}
             className="transition-transform duration-200 text-[#f0ebe0] bg-[#1b1f2a] hover:bg-[#2c2f3c] px-8 py-6 rounded-xl text-center text-2xl font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-1"
           >
             {link.label}
