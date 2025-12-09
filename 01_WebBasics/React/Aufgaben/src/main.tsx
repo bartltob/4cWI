@@ -10,6 +10,8 @@ import ToDoList from "./ToDoList.tsx";
 import Homepage from "./homepage.tsx";
 import API_Data from "./API_Data.tsx";
 import ToDoFilter from "./ToDoFilter_App.tsx";
+import StoreApp from "./StoreApp.tsx";
+import StoreDetailsApp from "./StoreDetailsApp.tsx";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
         path: "/ToDoFilter",
         element: <ToDoFilter/>
     },
+    {
+        path: "/StoreApp",
+        element: <StoreApp/>
+    },
+    {
+        path:"/:id",
+        element: <StoreDetailsApp/>
+    }
 ]);
 
 const root = document.getElementById("root");

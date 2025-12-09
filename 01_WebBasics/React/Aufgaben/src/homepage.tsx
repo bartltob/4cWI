@@ -6,6 +6,8 @@ const links = [
   { to: "/ToDo", label: "ToDo-Liste (useEffekt)" },
   { to: "/Persons", label: "Personen - API (useEffekt)" },
   { to: "/ToDoFilter", label: "ToDoList Filter" },
+  { to: "/StoreApp", label: "Store project" },
+
 ];
 
 
