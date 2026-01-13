@@ -6,6 +6,8 @@ export interface iItem {
   images: string[];
   price: number;
   id: number;
+  description: string;
+  updatedAt: string;
 }
 
 function Itemlist() {
@@ -26,6 +28,7 @@ function Itemlist() {
       ))}
     </div>
   );
+
 }
 
 export default Itemlist;
