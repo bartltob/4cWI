@@ -12,40 +12,45 @@ import API_Data from "./API_Data.tsx";
 import ToDoFilter from "./ToDoFilter_App.tsx";
 import StoreApp from "./StoreApp.tsx";
 import StoreDetailsApp from "./StoreDetailsApp.tsx";
+import StoreCartApp from "./StoreCartApp.tsx";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Homepage/>
-    },
-    {
-        path: "/HaggiClicker",
-        element: <UseState/>,
-    },
-    {
-        path: "/LightSwitch",
-        element: <LightSwitch/>,
-    },
-    {
-        path: "/ToDo",
-        element: <ToDoList/>,
-    },
-    {
-      path: "/Persons",
-      element: <API_Data/>
-    },
-    {
-        path: "/ToDoFilter",
-        element: <ToDoFilter/>
-    },
-    {
-        path: "/StoreApp",
-        element: <StoreApp/>
-    },
-    {
-        path:"/:id",
-        element: <StoreDetailsApp/>
-    }
+  {
+    path: "/",
+    element: <Homepage />,
+  },
+  {
+    path: "/HaggiClicker",
+    element: <UseState />,
+  },
+  {
+    path: "/LightSwitch",
+    element: <LightSwitch />,
+  },
+  {
+    path: "/ToDo",
+    element: <ToDoList />,
+  },
+  {
+    path: "/Persons",
+    element: <API_Data />,
+  },
+  {
+    path: "/ToDoFilter",
+    element: <ToDoFilter />,
+  },
+  {
+    path: "/StoreApp",
+    element: <StoreApp />,
+  },
+  {
+    path: "/:id",
+    element: <StoreDetailsApp />,
+  },
+  {
+    path: "/ShoppingCart",
+    element: <StoreCartApp />,
+  },
 ]);
 
 const root = document.getElementById("root");
