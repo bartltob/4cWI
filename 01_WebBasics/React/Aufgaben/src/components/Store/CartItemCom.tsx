@@ -1,28 +1,12 @@
 import type { CartItem } from "./ItemDetails.tsx";
-import { useState } from "react";
-
-type Operation = "add" | "sub" | "del";
-
-function changeQuantity(operation: Operation, item: CartItem) {
-  const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
-  const currentItem = cart.find((i) => i.id === item.id);
-
-
-
-  if (existingItem) {
-    existingItem.quantity = existingItem.quantity + 1;
-  } else {
-    cart.push({ ...item, quantity: 1 });
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
+import type { Operation } from "../../StoreCartApp.tsx";
 
 type Props = {
   item: CartItem;
+  changeQuantity: (operation: Operation, item: CartItem) => void;
 };
 
-export default function CartItemCom({ item }: Props) {
-  const [operation, setOperation] = useState<Operation>("add");
+export default function CartItemCom({ item, changeQuantity }: Props) {
   return (
     <div className="rounded-4xl border border-stone-300 bg-stone-50 p-12 shadow-xl">
       <h2 className="mb-8 text-4xl font-bold text-stone-800">{item.title}</h2>
@@ -44,10 +28,47 @@ export default function CartItemCom({ item }: Props) {
           <p className="text-lg leading-relaxed text-stone-700">
             {item.description}
           </p>
+          <div className="mt-4 flex items-center gap-6">
+            <button
+              onClick={() => changeQuantity("sub", item)}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-stone-300 bg-white shadow-sm transition hover:bg-stone-100 active:scale-95"
+              aria-label="Menge verringern"
+            >
+              <img
+                src="/images/Store/minus.png"
+                alt="-"
+                className="h-5 w-5 opacity-80"
+              />
+            </button>
 
-          <p className="text-lg font-medium text-stone-800 mt-2">
-            Menge: {item.quantity}
-          </p>
+            <span className="min-w-[4rem] text-center text-xl font-semibold text-stone-800">
+              {item.quantity}
+            </span>
+
+            <button
+              onClick={() => changeQuantity("add", item)}
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-stone-300 bg-white shadow-sm transition hover:bg-stone-100 active:scale-95"
+              aria-label="Menge erhöhen"
+            >
+              <img
+                src="/images/Store/plus.png"
+                alt="+"
+                className="h-5 w-5 opacity-80"
+              />
+            </button>
+
+            <button
+              onClick={() => changeQuantity("del", item)}
+              className="ml-6 flex h-12 w-12 items-center justify-center rounded-full border border-red-300 bg-red-50 shadow-sm transition hover:bg-red-100 active:scale-95"
+              aria-label="Artikel entfernen"
+            >
+              <img
+                src="/images/Store/mulleimer.png"
+                alt="löschen"
+                className="h-5 w-5 opacity-80"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
