@@ -5,7 +5,6 @@ export type Operation = "add" | "sub" | "del";
 
 export default function StoreCartApp() {
 
-
   const [cart, setCart] = useState<CartItem[]>(() => {
     return JSON.parse(localStorage.getItem("cart") || "[]");
   });

@@ -5,7 +5,6 @@ import ItemDetails from "./components/Store/ItemDetails.tsx";
 export default function StoreDetailsApp() {
   const { id } = useParams();
   const location = useLocation();
-  console.log(location);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     try {

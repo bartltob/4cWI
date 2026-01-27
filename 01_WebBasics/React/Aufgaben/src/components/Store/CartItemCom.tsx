@@ -32,7 +32,6 @@ export default function CartItemCom({ item, changeQuantity }: Props) {
             <button
               onClick={() => changeQuantity("sub", item)}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-stone-300 bg-white shadow-sm transition hover:bg-stone-100 active:scale-95"
-              aria-label="Menge verringern"
             >
               <img
                 src="/images/Store/minus.png"
@@ -41,14 +40,13 @@ export default function CartItemCom({ item, changeQuantity }: Props) {
               />
             </button>
 
-            <span className="min-w-[4rem] text-center text-xl font-semibold text-stone-800">
+            <span className="min-w-16 text-center text-xl font-semibold text-stone-800">
               {item.quantity}
             </span>
 
             <button
               onClick={() => changeQuantity("add", item)}
               className="flex h-12 w-12 items-center justify-center rounded-full border border-stone-300 bg-white shadow-sm transition hover:bg-stone-100 active:scale-95"
-              aria-label="Menge erhöhen"
             >
               <img
                 src="/images/Store/plus.png"
@@ -60,7 +58,6 @@ export default function CartItemCom({ item, changeQuantity }: Props) {
             <button
               onClick={() => changeQuantity("del", item)}
               className="ml-6 flex h-12 w-12 items-center justify-center rounded-full border border-red-300 bg-red-50 shadow-sm transition hover:bg-red-100 active:scale-95"
-              aria-label="Artikel entfernen"
             >
               <img
                 src="/images/Store/mulleimer.png"
