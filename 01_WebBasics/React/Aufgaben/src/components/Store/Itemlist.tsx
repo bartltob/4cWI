@@ -9,26 +9,43 @@ export interface iItem {
   description: string;
   updatedAt: string;
 }
+type Props = {
+  search: string;
+};
 
-function Itemlist() {
+function Itemlist({ search }: Props) {
   const [items, setitems] = useState<iItem[]>([]);
+  const [filteredItems, setFilteredItems] = useState<iItem[]>([]);
   useEffect(() => {
     fetch("https://api.escuelajs.co/api/v1/products")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setitems(data);
+        setFilteredItems(data);
       });
   }, []);
+  useEffect(() => {
+    setFilteredItems(
+      items.filter((item: iItem) => item.title.includes(search)),
+    );
+  }, [search, items]);
 
   return (
-    <div className="grid grid-cols-3 gap-4 xl:grid-cols-7 lg:grid-cols-6 md:grid-cols-5 sm:grid-cols-4 p-4">
-      {items.map((item) => (
-        <ItemCard item={item} />
-      ))}
+    <div className="max-w-6xl mx-auto px-6 pb-10">
+      <div
+        className="grid gap-10
+                  grid-cols-1
+                  sm:grid-cols-2
+                  md:grid-cols-3
+                  lg:grid-cols-4"
+      >
+        {filteredItems.map((item) => (
+          <ItemCard item={item} />
+        ))}
+      </div>
     </div>
   );
-
 }
 
 export default Itemlist;

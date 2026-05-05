@@ -7,9 +7,13 @@ export default function ItemCard({ item }: Props) {
   const OItem = { item };
   return (
     <div>
-
       <Link to={"/" + item.id} state={OItem}>
-        <div className="text-center flex-col border-2 h-80 overflow-hidden">
+        <div
+          className="text-center flex-col border-2 h-80 overflow-hidden bg-white rounded-2xl shadow-md
+             hover:shadow-xl transition
+             p-4 flex flex-col
+             h-72"
+        >
           <img src={item.images[0]} alt="Bild" className="h-2/3 w-full" />
           <div className="w-full h-20">
             <p className="font-bold">{item.title}</p>
