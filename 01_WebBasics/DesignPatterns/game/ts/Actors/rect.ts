@@ -1,40 +1,22 @@
-import {Actor} from "./actor";
-export class Rect implements Actor{
-    private x: number;
-    private y: number;
-    private width: number;
-    private height: number;
-    private speed: number;
-    private color: string;
-    constructor(x:number, y:number, width:number, height:number, speed:number, color: string) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.speed = speed;
-        this.color = color;
-    }
-    public update(deltaTime : number):void{
-        this.x += deltaTime*this.speed;
-        this.y += deltaTime*this.speed;
+import {MoveStrategy} from "../movements/MoveStrategy.js";
+import {AbstractActor} from "./AbstractActor.js";
+import {Observer} from "../Observer/Observer";
 
-        if (this.x > 800) {
-            this.x = -this.width;
-        }
-        if (this.x + this.width < 0) {
-            this.x = 800;
-        }
+export class Rect extends AbstractActor implements Observer {
 
-        // Vertikales Wrapping
-        if (this.y > 600) {
-            this.y = -this.height;
-        }
-        if (this.y + this.height < 0) {
-            this.y = 600;
-        }
+    constructor(private width:number, private height:number, private color:  string, protected movement: MoveStrategy) {
+        super(movement)
     }
+
+
     public render(ctx : CanvasRenderingContext2D):void {
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillRect(this.movement.getX(), this.movement.getY(), this.width, this.height);
     }
+
+    inform(event: string, data?: any): void {
+        console.log("Rect inform",event, data);
+    }
+
+
 }

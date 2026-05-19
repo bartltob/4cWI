@@ -1,40 +1,23 @@
-import {Actor} from "./actor";
+import {MoveStrategy} from "../movements/MoveStrategy";
+import {AbstractActor} from "./AbstractActor.js";
+import {Observer} from "../Observer/Observer";
 
-export class Circle implements Actor {
-    private x: number;
-    private y: number;
-    private radius: number;
-    private speed: number;
-    private color: string;
-    constructor(x:number, y:number, radius:number, speed:number, color: string) {
-        this.x = x;
-        this.y = y;
-        this.radius = radius;
-        this.speed = speed;
-        this.color = color;
+export class Circle extends AbstractActor implements Observer {
+    constructor(private radius:number, private color: string, protected movement:MoveStrategy) {
+        super(movement)
     }
-    public update(deltaTime : number):void{
-        this.x += deltaTime*this.speed;
-        this.y += deltaTime*this.speed;
 
-        if (this.x > 800) {
-            this.x = -this.radius;
-        }
-        if (this.x + this.radius < 0) {
-            this.x = 800;
-        }
-
-        if (this.y > 600) {
-            this.y = -this.radius;
-        }
-        if (this.y + this.radius < 0) {
-            this.y = 600;
-        }
-    }
     public render(ctx : CanvasRenderingContext2D):void {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.arc(this.movement.getX(), this.movement.getY(), this.radius, 0, 2 * Math.PI);
         ctx.fillStyle = this.color;
         ctx.fill();
+    }
+
+    inform(event: string, data?: any): void {
+        console.log("Circle inform",event, data);
+        if (event == "click"){
+            this.color = "#64066c";
+        }
     }
 }
